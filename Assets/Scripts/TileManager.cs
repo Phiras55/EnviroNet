@@ -14,7 +14,7 @@ public class TileManager : MonoBehaviour
     [SerializeField] private List<TILE_TYPE> tileTypes;
     [SerializeField] private List<Tile>      tiles;
 
-    public Tile GetPrefab(ref TILE_TYPE type)
+    public Tile GetPrefab(TILE_TYPE type)
     {
         int idx = tileTypes.IndexOf(type);
 

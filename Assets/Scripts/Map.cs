@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    const int SIZE_X = 9;
-    const int SIZE_Y = 7;
+    [SerializeField] int LevelNumber;
+    Level paterns;
+    TileManager tileManager;
 
-    //Ints will match the tile enum
 
     //Change int by the tile class when done
-    int[,] Tiles;
+    List<GameObject> Tiles;
 
 	void Start ()
     {
-        Tiles = new int[SIZE_X,SIZE_Y];
+        paterns = new Level();
+        byte[,] currentLevel = new byte[paterns.SIZE_X, paterns.SIZE_Y];
+        currentLevel = paterns.Levels[LevelNumber];
+        currentLevel = paterns.Levels[LevelNumber];
         //Populate the map with patern
-        int[,] currentLevel = paterns;
-        for (int y = 0; y < SIZE_Y; y++)
+        for (int y = 0; y < paterns.SIZE_Y; y++)
         {
-            for (int x = 0; x < SIZE_X; x++)
+            for (int x = 0; x < paterns.SIZE_X; x++)
             {
-                //Tiles[x,y] = Instantiate(GetTile(paterns.Levels[x,y]))
-                //Tiles[x,y].transform.position = new Vector3(x*128, y*128, 0);
+                Debug.Log(tileManager.GetPrefab(((TILE_TYPE)(currentLevel[x, y]))));
+                Tiles[y * paterns.SIZE_X + x] = Instantiate(tileManager.GetPrefab(((TILE_TYPE)(currentLevel[x,y]))).gameObject);
+                Tiles[y* paterns.SIZE_X + x].transform.position = new Vector3(x*128, y*128, 0);
             }
         }
 	}
