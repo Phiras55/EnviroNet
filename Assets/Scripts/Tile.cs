@@ -39,6 +39,11 @@ public class Tile : MonoBehaviour
         get { return m_outBuilding; }
     }
 
+    public TILE_TYPE Type
+    {
+        get { return type; }
+    }
+
     private bool AddBuilding(Building building, bool inBuilding)
     {
         int idx = building.TileTypes.IndexOf(type);

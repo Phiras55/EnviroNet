@@ -285,9 +285,56 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674921522}
+  - {fileID: 852504997}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &852504996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 852504997}
+  - component: {fileID: 852504998}
+  m_Layer: 0
+  m_Name: BuildingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &852504997
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852504996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 568062109}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &852504998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 852504996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e17ab9b686f09a4b85f75a60fb9f33e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingTypes: 01020304
+  buildings:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1028067579
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,8 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f14a4ff0f9ec24a95cec4a06c152ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileTypes: 01
+  tileTypes: 0002
   tiles:
+  - {fileID: 1360476134532876, guid: d2ade7c43be43094a93c8d2b745cdf55, type: 2}
   - {fileID: 1163446784740988, guid: 31c63869f3178444eb13326b04338aa7, type: 2}
 --- !u!1 &1953113225
 GameObject:

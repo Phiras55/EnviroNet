@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    [SerializeField] int LevelNumber;
+    [SerializeField] int         LevelNumber;
     [SerializeField] TileManager tileManager;
-    [SerializeField] Vector2 gameZoneOffset;
+    [SerializeField] Vector2     gameZoneOffset;
     Level paterns;
-
 
     //Change int by the tile class when done
     List<GameObject> Tiles;
@@ -21,19 +20,14 @@ public class Map : MonoBehaviour
         currentLevel = paterns.Levels[LevelNumber];
         currentLevel = paterns.Levels[LevelNumber];
         //Populate the map with patern
-        for (int y = 0; y < paterns.SIZE_Y; y++)
+        for (int y = paterns.SIZE_Y-1; y >= 0; y--)
         {
             for (int x = 0; x < paterns.SIZE_X; x++)
             {
                 GameObject currentTile = Instantiate(tileManager.GetPrefab(((TILE_TYPE)(currentLevel[y,x]))));
-                currentTile.transform.position = new Vector3(x*128+gameZoneOffset.x, y*128+gameZoneOffset.y, 0);
+                currentTile.transform.position = new Vector3(x * 128 + gameZoneOffset.x, y * 128 + gameZoneOffset.y + 128, 0);
                 Tiles.Add(currentTile);
             }
         }
-	}
-	
-	void Update ()
-    {
-		
 	}
 }
