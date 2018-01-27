@@ -4,12 +4,14 @@ using UnityEngine;
 
 public enum TILE_TYPE : byte
 {
-    PLAINS      = 1,
-    FOREST      = 2,
-    MOUNTAINS   = 3,
-    LAKE        = 4,
-    CITY        = 5,
-    VOID        = 6
+    VOID        = 0,
+    START       = 1,
+    PLAINS      = 2,
+    FOREST      = 3,
+    MOUNTAINS   = 4,
+    LAKE        = 5,
+    CITY        = 6,
+    END         = 9
 }
 
 public class TileManager : MonoBehaviour
