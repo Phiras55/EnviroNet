@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4890898836165846}
   - component: {fileID: 114577202281130284}
   m_Layer: 0
-  m_Name: Tyle
+  m_Name: Plains
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,4 +51,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afb1c9660d9a21345a691429cc66f6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 5b754fba27048c24ab6609097dfbe89f, type: 3}
+  sprite: {fileID: 21300000, guid: 3023e911d3fd3d2428d6e6e71c151f73, type: 3}
+  type: 1
