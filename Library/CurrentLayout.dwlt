@@ -340,14 +340,14 @@ MonoBehaviour:
     width: 834
     height: 645
   m_SceneLighting: 1
-  lastFramingTime: 3739.0991449035546
-  m_2DMode: 1
+  lastFramingTime: 8749.314014926833
+  m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 762.3211, y: 598.69366, z: 6.0341825}
+    m_Target: {x: 0.45697963, y: -0.13142216, z: -0.053770065}
     speed: 2
-    m_Value: {x: 762.3211, y: 598.69366, z: 6.0341825}
+    m_Value: {x: 0.45697963, y: -0.13142216, z: -0.053770065}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -362,26 +362,26 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
     yGrid:
-      m_Target: 0
-      speed: 2
-      m_Value: 0
-    zGrid:
       m_Target: 1
       speed: 2
       m_Value: 1
+    zGrid:
+      m_Target: 0
+      speed: 2
+      m_Value: 0
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: 0.048229568, y: 0.05032253, z: -0.002432939, w: 0.99756485}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: 0.048229568, y: 0.05032253, z: -0.002432939, w: 0.99756485}
   m_Size:
-    m_Target: 1297.0314
+    m_Target: 22
     speed: 2
-    m_Value: 1297.0314
+    m_Value: 22
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+    m_Value: 0
+  m_LastSceneViewRotation: {x: 0.026657887, y: -0.67833054, z: 0.024640812, w: 0.7338596}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_StartGridSize: 64
   m_LastFolders: []
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\a.carriere\Documents\Unity\EnviroNet
+  m_LastProjectPath: C:\Users\p.campiongingras\Documents\Projects Repo\EnviroNet
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
@@ -578,18 +578,18 @@ MonoBehaviour:
     m_ExpandedIDs: e6f5ffff1afcffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: World
+      m_OriginalName: World
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: -15378
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 9}
     m_SearchString: 
