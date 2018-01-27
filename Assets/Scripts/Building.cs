@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class Building : MonoBehaviour
 {
     [SerializeField] private Sprite          sprite;
+    [SerializeField] private BUILDING_TYPE   type;
+
+    [Header("Losts settings")]
     [SerializeField] private List<TILE_TYPE> tileType;
     [SerializeField] private List<float>     losts;
+    [SerializeField] private List<bool>      buildable;
 
     private SpriteRenderer  m_imageComponent;
 
@@ -28,6 +32,21 @@ public class Building : MonoBehaviour
             }
         }
 	}
+
+    public List<TILE_TYPE> TileTypes
+    {
+        get { return tileType; }
+    }
+
+    public List<float> Losts
+    {
+        get { return losts; }
+    }
+
+    public List<bool> Buildable
+    {
+        get { return buildable; }
+    }
 
     public float GetLost(ref TILE_TYPE type)
     {

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public enum BUILDING_TYPE : byte
 {
-    BUILDING_1,
-    BUILDING_2,
-    BUILDING_3
+    CABLE       = 1,
+    WIFI        = 2,
+    LASER       = 3,
+    SATELLITE   = 4
 }
 
 public class BuildingManager : MonoBehaviour
 {
     [SerializeField] private List<BUILDING_TYPE> buildingTypes;
-    [SerializeField] private List<Building>      buildings;
+    [SerializeField] private List<GameObject>    buildings;
 
-    public Building GetPrefab(ref BUILDING_TYPE type)
+    public GameObject GetPrefab(ref BUILDING_TYPE type)
     {
         int idx = buildingTypes.IndexOf(type);
 
@@ -24,6 +25,4 @@ public class BuildingManager : MonoBehaviour
         }
         return buildings[0];
     }
-
-
 }

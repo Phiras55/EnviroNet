@@ -4,17 +4,20 @@ using UnityEngine;
 
 public enum TILE_TYPE : byte
 {
-    TILE_1,
-    TILE_2,
-    TILE_3
+    PLAINS      = 1,
+    FOREST      = 2,
+    MOUNTAINS   = 3,
+    LAKE        = 4,
+    CITY        = 5,
+    VOID        = 6
 }
 
 public class TileManager : MonoBehaviour
 {
     [SerializeField] private List<TILE_TYPE> tileTypes;
-    [SerializeField] private List<Tile>      tiles;
+    [SerializeField] private List<GameObject>tiles;
 
-    public Tile GetPrefab(TILE_TYPE type)
+    public GameObject GetPrefab(ref TILE_TYPE type)
     {
         int idx = tileTypes.IndexOf(type);
 
