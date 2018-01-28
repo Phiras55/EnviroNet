@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingSelector : MonoBehaviour {
 
     [SerializeField] Map map;
-    [SerializeField] Building building;
+    [SerializeField] BUILDING_TYPE building;
 
     public void SetCurrentBuilding()
     {
