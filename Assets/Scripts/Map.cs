@@ -29,5 +29,23 @@ public class Map : MonoBehaviour
                 Tiles.Add(currentTile);
             }
         }
+        Destroy(GetTile(3, 0).gameObject);
 	}
+
+    bool IsTileValid(int x, int y)
+    {
+        if (x >= 0 && x < paterns.SIZE_X && y >= 0 && y < paterns.SIZE_Y)
+        {
+            if (Tiles[(paterns.SIZE_Y - y - 1) * paterns.SIZE_X + x])
+                return true;
+        }
+        return false;
+    }
+
+    Tile GetTile(int x, int y)
+    {
+        if (IsTileValid(x, y))
+            return Tiles[y * paterns.SIZE_X + x].GetComponent<Tile>();
+        return null;
+    }
 }
