@@ -12,7 +12,7 @@ public class Map : MonoBehaviour
     //Change int by the tile class when done
     List<GameObject> Tiles;
 
-	void Start ()
+    private void Start()
     {
         Tiles = new List<GameObject>();
         paterns = new Level();
@@ -20,16 +20,16 @@ public class Map : MonoBehaviour
         currentLevel = paterns.Levels[LevelNumber];
         currentLevel = paterns.Levels[LevelNumber];
         //Populate the map with patern
-        for (int y = paterns.SIZE_Y-1; y >= 0; y--)
+        for (int y = 0; y < paterns.SIZE_Y; ++y)
         {
             for (int x = 0; x < paterns.SIZE_X; x++)
             {
-                GameObject currentTile = Instantiate(tileManager.GetPrefab(((TILE_TYPE)(currentLevel[y,x]))));
-                currentTile.transform.position = new Vector3(x * 128 + gameZoneOffset.x, y * 128 + gameZoneOffset.y + 128, 0);
+                GameObject currentTile = Instantiate(tileManager.GetPrefab(((TILE_TYPE)(currentLevel[y, x]))));
+                currentTile.transform.localPosition = new Vector3(x*128 + gameZoneOffset.x, gameZoneOffset.y - y*128, 0);
                 Tiles.Add(currentTile);
             }
         }
-	}
+    }
 
     bool IsTileValid(int x, int y)
     {
