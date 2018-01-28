@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Map : MonoBehaviour
 {
-    [SerializeField] int         LevelNumber;
-    [SerializeField] TileManager tileManager;
-    [SerializeField] Vector2     gameZoneOffset;
+    [SerializeField] int                LevelNumber;
+    [SerializeField] TileManager        tileManager;
+    [SerializeField] BuildingManager    buildingManager;
+    [SerializeField] Vector2            gameZoneOffset;
     Level paterns;
     bool clicked = false;
 
@@ -19,7 +20,6 @@ public class Map : MonoBehaviour
         paterns = new Level();
         byte[,] currentLevel = new byte[paterns.SIZE_X, paterns.SIZE_Y];
         currentLevel = paterns.Levels[LevelNumber];
-        currentLevel = paterns.Levels[LevelNumber];
         //Populate the map with patern
         for (int y = 0; y < paterns.SIZE_Y; ++y)
         {
@@ -30,6 +30,15 @@ public class Map : MonoBehaviour
                 Tiles.Add(currentTile);
             }
         }
+
+        GameObject test1 = Instantiate(buildingManager.GetPrefab(BUILDING_TYPE.LASER));
+        GameObject test2 = Instantiate(buildingManager.GetPrefab(BUILDING_TYPE.LASER));
+        GameObject test3 = Instantiate(buildingManager.GetPrefab(BUILDING_TYPE.LASER));
+        Tiles[0].GetComponent<Tile>().AddBuilding(test2.GetComponent<Building>(), DIRECTION.LEFT, POSITION_TYPE.CENTER, true, false);
+        Tiles[0].GetComponent<Tile>().AddBuilding(test1.GetComponent<Building>(), DIRECTION.RIGHT, POSITION_TYPE.RIGHT, false, false);
+        Tiles[1].GetComponent<Tile>().AddBuilding(test3.GetComponent<Building>(), DIRECTION.LEFT, POSITION_TYPE.RIGHT, true, false);
+
+        Tiles[0].GetComponent<Tile>().RemoveBuilding(true);
     }
 
     public bool IsTileValid(int x, int y)
@@ -64,7 +73,6 @@ public class Map : MonoBehaviour
         if(!clicked)
         {
             clicked = true;
-            //AddCurrentBuildingto FindTile();
         }
     }
     void OnMouseUp()

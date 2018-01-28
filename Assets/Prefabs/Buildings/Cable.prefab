@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1470389339977410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 320, y: 866, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,14 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84bb21cb0369cf54da7710a10a293232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: bd546c2b1d466d04e91f973dd70977e9, type: 3}
+  continousSprite: {fileID: 21300000, guid: 7f6817f38f3fe9f44a99470b4b57c49f, type: 3}
   type: 0
-  tileType: 010203040506
+  tileType: 0001020304050609
   losts:
-  - 10
-  - 20
-  - 5
-  - 5
-  - 5
-  - 5
-  buildable: 010101010101
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  buildable: 0101010101010101

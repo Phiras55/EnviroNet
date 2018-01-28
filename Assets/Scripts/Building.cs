@@ -1,11 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
+public enum DIRECTION
+{
+    TOP_LEFT,
+    TOP,
+    TOP_RIGHT,
+    LEFT,
+    CENTER,
+    RIGHT,
+    BOTTOM_LEFT,
+    BOTTOM,
+    BOTTOM_RIGHT
+}
+
+public enum POSITION_TYPE
+{
+    CENTER,
+    LEFT,
+    RIGHT
+}
 
 public class Building : MonoBehaviour
 {
     [SerializeField] private Sprite          sprite;
+    [SerializeField] private Sprite          continousSprite;
     [SerializeField] private BUILDING_TYPE   type;
 
     [Header("Losts settings")]
@@ -46,6 +66,16 @@ public class Building : MonoBehaviour
     public List<bool> Buildable
     {
         get { return buildable; }
+    }
+
+    public Vector2 SpriteSize
+    {
+        get { return sprite.rect.size; }
+    }
+
+    public void SwitchToContinuousSprite()
+    {
+        m_imageComponent.sprite = continousSprite;
     }
 
     public float GetLost(ref TILE_TYPE type)

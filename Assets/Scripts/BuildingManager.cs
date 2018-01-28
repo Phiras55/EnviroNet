@@ -15,7 +15,7 @@ public class BuildingManager : MonoBehaviour
     [SerializeField] private List<BUILDING_TYPE> buildingTypes;
     [SerializeField] private List<GameObject>    buildings;
 
-    public GameObject GetPrefab(ref BUILDING_TYPE type)
+    public GameObject GetPrefab(BUILDING_TYPE type)
     {
         int idx = buildingTypes.IndexOf(type);
 

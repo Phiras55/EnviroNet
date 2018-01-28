@@ -78,6 +78,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Action.cs" />
+    <Compile Include="Assets\Scripts\ActionManager.cs" />
     <Compile Include="Assets\Scripts\Building.cs" />
     <Compile Include="Assets\Scripts\BuildingManager.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
