@@ -7,6 +7,8 @@ public class Map : MonoBehaviour
     [SerializeField] int         LevelNumber;
     [SerializeField] TileManager tileManager;
     [SerializeField] Vector2     gameZoneOffset;
+    public Building currentBuilding;
+    Tile currentTile;
     Level paterns;
     bool clicked = false;
 
@@ -45,7 +47,10 @@ public class Map : MonoBehaviour
     public Tile GetTile(int x, int y)
     {
         if (IsTileValid(x, y))
+        {
+            Debug.Log("toto");
             return Tiles[y * paterns.SIZE_X + x].GetComponent<Tile>();
+        }
         return null;
     }
 
@@ -54,20 +59,20 @@ public class Map : MonoBehaviour
         Vector3 point = Camera.main.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, 
                         Input.mousePosition.y, 
-                        1));
+                        Camera.main.nearClipPlane));
 
-        return GetTile((int)point.x, (int)point.y);
+        return GetTile((int)point.x/128, (int)paterns.SIZE_Y - (int)point.y/128);
     }
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         if(!clicked)
         {
             clicked = true;
-            //AddCurrentBuildingto FindTile();
+            Debug.Log(FindTile().gameObject.transform.position);
         }
     }
-    void OnMouseUp()
+    public void OnMouseUp()
     {
         clicked = false;
     }

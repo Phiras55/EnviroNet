@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 194339844}
   - component: {fileID: 194339843}
   - component: {fileID: 194339842}
+  - component: {fileID: 194339845}
   m_Layer: 0
   m_Name: Button1
   m_TagString: Untagged
@@ -244,7 +245,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 194339843}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 194339845}
+        m_MethodName: SetCurrentBuilding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &194339843
@@ -280,6 +292,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 194339840}
+--- !u!114 &194339845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 194339840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d64971a9c9710144b88100cfe2b7c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1028126350}
+  building: {fileID: 114486790444487012, guid: 5353b0cc5e6c5f14095030aada20cc8b, type: 2}
 --- !u!1 &304940108
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,6 +366,7 @@ GameObject:
   - component: {fileID: 506723655}
   - component: {fileID: 506723654}
   - component: {fileID: 506723653}
+  - component: {fileID: 506723656}
   m_Layer: 0
   m_Name: Button3
   m_TagString: Untagged
@@ -440,6 +466,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506723651}
+--- !u!114 &506723656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506723651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d64971a9c9710144b88100cfe2b7c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1028126350}
+  building: {fileID: 0}
 --- !u!1 &533390036
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +787,7 @@ MonoBehaviour:
   LevelNumber: 4
   tileManager: {fileID: 304940110}
   gameZoneOffset: {x: 256, y: 930}
+  currentBuilding: {fileID: 0}
 --- !u!1 &1124820951
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,6 +828,7 @@ GameObject:
   - component: {fileID: 1551267745}
   - component: {fileID: 1551267744}
   - component: {fileID: 1551267743}
+  - component: {fileID: 1551267746}
   m_Layer: 0
   m_Name: Button2
   m_TagString: Untagged
@@ -887,6 +928,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1551267741}
+--- !u!114 &1551267746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1551267741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d64971a9c9710144b88100cfe2b7c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1028126350}
+  building: {fileID: 0}
 --- !u!1 &1614270614
 GameObject:
   m_ObjectHideFlags: 0
@@ -1018,6 +1072,7 @@ GameObject:
   - component: {fileID: 1781460757}
   - component: {fileID: 1781460756}
   - component: {fileID: 1781460755}
+  - component: {fileID: 1781460758}
   m_Layer: 0
   m_Name: Button4
   m_TagString: Untagged
@@ -1117,6 +1172,19 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1781460753}
+--- !u!114 &1781460758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1781460753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d64971a9c9710144b88100cfe2b7c90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 1028126350}
+  building: {fileID: 0}
 --- !u!1 &1983349664
 GameObject:
   m_ObjectHideFlags: 0
