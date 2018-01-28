@@ -323,7 +323,7 @@ MonoBehaviour:
   tileTypes: 0001020304050609
   tiles:
   - {fileID: 1360476134532876, guid: d2ade7c43be43094a93c8d2b745cdf55, type: 2}
-  - {fileID: 0}
+  - {fileID: 1163446784740988, guid: 31c63869f3178444eb13326b04338aa7, type: 2}
   - {fileID: 1163446784740988, guid: 31c63869f3178444eb13326b04338aa7, type: 2}
   - {fileID: 1273311096034350, guid: 85f3d6076acbec84792dac066fbf9c95, type: 2}
   - {fileID: 1451968086394086, guid: b1960e72faf76f84f90808d1e9836d96, type: 2}
