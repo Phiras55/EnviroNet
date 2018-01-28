@@ -26,13 +26,13 @@ public class Map : MonoBehaviour
             for (int x = 0; x < paterns.SIZE_X; x++)
             {
                 GameObject currentTile = Instantiate(tileManager.GetPrefab(((TILE_TYPE)(currentLevel[y, x]))));
-                currentTile.transform.localPosition = new Vector3(x*128 + gameZoneOffset.x, gameZoneOffset.y - y*128, 0);
+                currentTile.transform.position = new Vector3(x*128 + gameZoneOffset.x, gameZoneOffset.y - y*128, -(float)y/10.0f);
                 Tiles.Add(currentTile);
             }
         }
     }
 
-    bool IsTileValid(int x, int y)
+    public bool IsTileValid(int x, int y)
     {
         if (x >= 0 && x < paterns.SIZE_X && y >= 0 && y < paterns.SIZE_Y)
         {
@@ -42,7 +42,7 @@ public class Map : MonoBehaviour
         return false;
     }
 
-    Tile GetTile(int x, int y)
+    public Tile GetTile(int x, int y)
     {
         if (IsTileValid(x, y))
             return Tiles[y * paterns.SIZE_X + x].GetComponent<Tile>();
