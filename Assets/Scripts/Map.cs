@@ -29,7 +29,6 @@ public class Map : MonoBehaviour
                 Tiles.Add(currentTile);
             }
         }
-        Destroy(GetTile(3, 0).gameObject);
 	}
 
     bool IsTileValid(int x, int y)

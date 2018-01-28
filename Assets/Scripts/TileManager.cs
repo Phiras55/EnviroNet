@@ -9,7 +9,7 @@ public enum TILE_TYPE : byte
     PLAINS      = 2,
     FOREST      = 3,
     MOUNTAINS   = 4,
-    LAKE        = 5,
+    DESERT      = 5,
     CITY        = 6,
     END         = 9
 }
