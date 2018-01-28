@@ -10,10 +10,12 @@ public class Tile : MonoBehaviour
     private Building m_inBuilding;
     private Building m_outBuilding;
     private SpriteRenderer m_imageComponent;
+    private Map m_map;
 
     // Use this for initialization
     public void Start()
     {
+        m_map = GameObject.FindGameObjectWithTag("Map").GetComponent<Map>();
         m_imageComponent = gameObject.GetComponent<SpriteRenderer>();
         if (m_imageComponent)
         {
@@ -140,4 +142,17 @@ public class Tile : MonoBehaviour
 
         building.transform.position = transform.position + offset;
     }
+
+    private void OnMouseDown()
+    {
+        m_map.clicked = true;
+        m_map.AddComponentOnTile(this);
+    }
+
+    private void OnMouseUp()
+    {
+        m_map.clicked = false;
+    }
+
+
 }

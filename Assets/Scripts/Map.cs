@@ -8,10 +8,10 @@ public class Map : MonoBehaviour
     [SerializeField] TileManager tileManager;
     [SerializeField] BuildingManager    buildingManager;
     [SerializeField] Vector2     gameZoneOffset;
-    public Building currentBuilding;
+    public BUILDING_TYPE currentBuilding;
     Tile currentTile;
     Level paterns;
-    bool clicked = false;
+    public bool clicked = false;
 
     //Change int by the tile class when done
     List<GameObject> Tiles;
@@ -32,15 +32,6 @@ public class Map : MonoBehaviour
                 Tiles.Add(currentTile);
             }
         }
-
-        GameObject test1 = Instantiate(buildingManager.GetPrefab(BUILDING_TYPE.LASER));
-        GameObject test2 = Instantiate(buildingManager.GetPrefab(BUILDING_TYPE.LASER));
-        GameObject test3 = Instantiate(buildingManager.GetPrefab(BUILDING_TYPE.LASER));
-        Tiles[0].GetComponent<Tile>().AddBuilding(test2.GetComponent<Building>(), DIRECTION.LEFT, POSITION_TYPE.CENTER, true, false);
-        Tiles[0].GetComponent<Tile>().AddBuilding(test1.GetComponent<Building>(), DIRECTION.RIGHT, POSITION_TYPE.RIGHT, false, false);
-        Tiles[1].GetComponent<Tile>().AddBuilding(test3.GetComponent<Building>(), DIRECTION.LEFT, POSITION_TYPE.RIGHT, true, false);
-
-        Tiles[0].GetComponent<Tile>().RemoveBuilding(true);
     }
 
     public bool IsTileValid(int x, int y)
@@ -57,32 +48,115 @@ public class Map : MonoBehaviour
     {
         if (IsTileValid(x, y))
         {
-            Debug.Log("toto");
             return Tiles[y * paterns.SIZE_X + x].GetComponent<Tile>();
         }
         return null;
     }
 
-    public Tile FindTile()
+    public Tile GetTile(Vector2 pos)
     {
-        Vector3 point = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, 
-                        Input.mousePosition.y, 
-                        Camera.main.nearClipPlane));
-
-        return GetTile((int)point.x/128, (int)paterns.SIZE_Y - (int)point.y/128);
+        return GetTile((int)pos.x, (int)pos.y);
     }
 
-    public void OnMouseDown()
+    public Vector2 FindTile(Tile tile)
     {
-        if(!clicked)
+        float x = tile.gameObject.transform.position.x;
+        float y = tile.gameObject.transform.position.y;
+        Debug.Log(new Vector2((x - gameZoneOffset.x) / 128, -(y - gameZoneOffset.y) / 128));
+        return new Vector2((x - gameZoneOffset.x) / 128, -(y - gameZoneOffset.y) / 128);
+    }
+
+    public void AddComponentOnTile(Tile tile)
+    {
+        GameObject b = Instantiate(buildingManager.GetPrefab(currentBuilding));
+        Building building = b.GetComponent<Building>();
+        Tile t2 = GetTile(FindTile(tile));
+
+        Vector2 v1 = FindTile(currentTile);
+        Vector2 v2 = FindTile(tile);
+
+        Vector2 v = v1 - v2;
+
+
+        switch (currentBuilding)
         {
-            clicked = true;
-            Debug.Log(FindTile().gameObject.transform.position);
+            case BUILDING_TYPE.CABLE:
+                if (v == new Vector2(1, 0))
+                {
+                    tile.AddBuilding(building, DIRECTION.RIGHT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.LEFT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v == new Vector2(0, -1))
+                {
+                    tile.AddBuilding(building, DIRECTION.BOTTOM, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.TOP, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v == new Vector2(-1, 0))
+                {
+                    tile.AddBuilding(building, DIRECTION.LEFT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.RIGHT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v == new Vector2(0, 1))
+                {
+                    tile.AddBuilding(building, DIRECTION.TOP, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.BOTTOM, POSITION_TYPE.CENTER, false, false);
+                }
+                break;
+            case BUILDING_TYPE.WIFI:
+                if (v == new Vector2(1, 1))
+                {
+                    tile.AddBuilding(building, DIRECTION.TOP_RIGHT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.BOTTOM_LEFT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v == new Vector2(1, -1))
+                {
+                    tile.AddBuilding(building, DIRECTION.BOTTOM_RIGHT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.TOP_LEFT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v == new Vector2(-1, -1))
+                {
+                    tile.AddBuilding(building, DIRECTION.BOTTOM_LEFT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.TOP_RIGHT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v == new Vector2(-1, 1))
+                {
+                    tile.AddBuilding(building, DIRECTION.TOP_LEFT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.BOTTOM_RIGHT, POSITION_TYPE.CENTER, false, false);
+                }
+                break;
+            case BUILDING_TYPE.LASER:
+                if (v.x > 1 && v.y == 0)
+                {
+                    tile.AddBuilding(building, DIRECTION.RIGHT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.LEFT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v.x == 0 && v.y < -1)
+                {
+                    tile.AddBuilding(building, DIRECTION.BOTTOM, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.TOP, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v.x < -1 && v.y == 0)
+                {
+                    tile.AddBuilding(building, DIRECTION.LEFT, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.RIGHT, POSITION_TYPE.CENTER, false, false);
+                }
+                if (v.x == 0 && v.y > 1)
+                {
+                    tile.AddBuilding(building, DIRECTION.TOP, POSITION_TYPE.CENTER, true, false);
+                    currentTile.AddBuilding(building, DIRECTION.BOTTOM, POSITION_TYPE.CENTER, false, false);
+                }
+                break;
+            case BUILDING_TYPE.SATELLITE:
+                tile.AddBuilding(building, DIRECTION.CENTER, POSITION_TYPE.LEFT, true, false);
+                currentTile.AddBuilding(building, DIRECTION.CENTER, POSITION_TYPE.RIGHT, false, false);
+                break;
+
         }
+        
     }
-    public void OnMouseUp()
+
+    private void AddOutBuilding()
     {
-        clicked = false;
+
     }
 }
